@@ -1,122 +1,122 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
-
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="app">
+      <header className="site-header">
+        <div className="container header-content">
+          <a href="/" className="logo">
+            Buy One <span>&amp;</span> Get More
+          </a>
 
-      <div className="ticks"></div>
+          <nav className="main-nav" aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a href="/products">Products</a>
+            <a href="/categories">Categories</a>
+            <a href="/about">About</a>
+          </nav>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+          <div className="header-actions">
+            <button type="button" className="icon-button" aria-label="Search">
+              🔍
+            </button>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+            <button type="button" className="icon-button" aria-label="Shopping cart">
+              🛒
+              <span className="cart-count">0</span>
+            </button>
+
+            <button type="button" className="login-button">
+              Login
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section className="hero">
+          <div className="container hero-content">
+            <div className="hero-text">
+              <p className="eyebrow">SHOP SMART. GET MORE.</p>
+
+              <h1>
+                Everything you want.
+                <span> More value.</span>
+              </h1>
+
+              <p className="hero-description">
+                Discover quality products at great prices and enjoy a simple,
+                modern shopping experience.
+              </p>
+
+              <div className="hero-actions">
+                <a href="/products" className="primary-button">
+                  Shop Now
+                </a>
+
+                <a href="/categories" className="secondary-button">
+                  Explore Categories
+                </a>
+              </div>
+            </div>
+
+            <div className="hero-card">
+              <div className="hero-card-content">
+                <span>Featured</span>
+                <h2>Buy One &amp; Get More</h2>
+                <p>Quality products. Better value.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="categories-section">
+          <div className="container">
+            <div className="section-heading">
+              <p className="eyebrow">EXPLORE</p>
+              <h2>Shop by Category</h2>
+              <p>Find what you need faster.</p>
+            </div>
+
+            <div className="category-grid">
+              <a href="/categories/electronics" className="category-card">
+                <span>💻</span>
+                <h3>Electronics</h3>
+                <p>Technology &amp; gadgets</p>
+              </a>
+
+              <a href="/categories/fashion" className="category-card">
+                <span>👕</span>
+                <h3>Fashion</h3>
+                <p>Style for every day</p>
+              </a>
+
+              <a href="/categories/home" className="category-card">
+                <span>🏠</span>
+                <h3>Home</h3>
+                <p>Make your space better</p>
+              </a>
+
+              <a href="/categories/beauty" className="category-card">
+                <span>✨</span>
+                <h3>Beauty</h3>
+                <p>Care &amp; wellness</p>
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="site-footer">
+        <div className="container footer-content">
+          <div>
+            <h2>Buy One &amp; Get More</h2>
+            <p>Better shopping. Better value.</p>
+          </div>
+
+          <p>© 2026 Buy One &amp; Get More. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;
