@@ -1,4 +1,8 @@
+import { useCart } from "../context/CartContext";
+
 function ProductCard({ product }) {
+  const { addToCart } = useCart();
+
   return (
     <article className="product-card">
       <img
@@ -19,7 +23,10 @@ function ProductCard({ product }) {
         <div className="product-bottom">
           <strong>${product.price.toFixed(2)}</strong>
 
-          <button type="button">
+          <button
+            type="button"
+            onClick={() => addToCart(product)}
+          >
             Add to Cart
           </button>
         </div>
