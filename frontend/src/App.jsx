@@ -6,6 +6,7 @@ import { useCart } from "./context/CartContext";
 
 function App() {
   const [showCart, setShowCart] = useState(false);
+     const [selectedCategory, setSelectedCategory] = useState("All");
   const { cartCount } = useCart();
 
   const handleHomeClick = () => {
@@ -16,6 +17,12 @@ function App() {
     setShowCart(true);
   };
 
+  const filteredProducts =
+    selectedCategory === "All"
+      ? products
+      : products.filter(
+          (product) => product.category === selectedCategory
+        );
   return (
     <main>
       <header className="store-header">
@@ -64,10 +71,28 @@ function App() {
             <span>
               Quality products for your everyday needs.
             </span>
+
+
+<div className="category-filter">
+  {["All", "Electronics", "Fashion", "Home"].map((category) => (
+    <button
+      key={category}
+      type="button"
+      className={
+        selectedCategory === category
+          ? "category-button active"
+          : "category-button"
+      }
+      onClick={() => setSelectedCategory(category)}
+    >
+      {category}
+    </button>
+  ))}
+</div>
           </div>
 
           <div className="product-grid">
-            {products.map((product) => (
+            {filteredProducts.map((product) => (
               <ProductCard
                 key={product.id}
                 product={product}
