@@ -1,6 +1,6 @@
 import { useCart } from "../context/CartContext";
 
-function ProductCard({ product }) {
+function ProductCard({ product, onViewDetails }) {
   const { addToCart } = useCart();
 
   return (
@@ -21,15 +21,25 @@ function ProductCard({ product }) {
         </p>
 
         <div className="product-bottom">
-          <strong>${product.price.toFixed(2)}</strong>
+  <strong>${product.price.toFixed(2)}</strong>
 
-          <button
-            type="button"
-            onClick={() => addToCart(product)}
-          >
-            Add to Cart
-          </button>
-        </div>
+  <div className="product-actions">
+    <button
+      type="button"
+      className="details-button"
+      onClick={() => onViewDetails(product)}
+    >
+      View Details
+    </button>
+
+    <button
+      type="button"
+      onClick={() => addToCart(product)}
+    >
+      Add to Cart
+    </button>
+  </div>
+</div>
       </div>
     </article>
   );

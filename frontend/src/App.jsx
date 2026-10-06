@@ -2,20 +2,28 @@ import { useState } from "react";
 import products from "./data/products";
 import ProductCard from "./components/ProductCard";
 import Cart from "./pages/Cart";
+import ProductDetails from "./pages/ProductDetails";
 import { useCart } from "./context/CartContext";
 
 function App() {
   const [showCart, setShowCart] = useState(false);
+const [selectedProduct, setSelectedProduct] = useState(null);
      const [selectedCategory, setSelectedCategory] = useState("All");
   const { cartCount } = useCart();
 
   const handleHomeClick = () => {
-    setShowCart(false);
-  };
+  setShowCart(false);
+  setSelectedProduct(null);
+};
 
   const handleCartClick = () => {
-    setShowCart(true);
-  };
+  setSelectedProduct(null);
+  setShowCart(true);
+};
+  const handleProductClick = (product) => {
+  setSelectedProduct(product);
+  setShowCart(false);
+};
 
   const filteredProducts =
     selectedCategory === "All"
@@ -60,8 +68,13 @@ function App() {
       </header>
 
       {showCart ? (
-        <Cart />
-      ) : (
+  <Cart />
+) : selectedProduct ? (
+  <ProductDetails
+    product={selectedProduct}
+    onBack={() => setSelectedProduct(null)}
+  />
+) : (
         <section className="products-section">
           <div className="section-header">
             <p>OUR COLLECTION</p>
@@ -94,9 +107,10 @@ function App() {
           <div className="product-grid">
             {filteredProducts.map((product) => (
               <ProductCard
-                key={product.id}
-                product={product}
-              />
+  key={product.id}
+  product={product}
+  onViewDetails={handleProductClick}
+/>
             ))}
           </div>
         </section>
